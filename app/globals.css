@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Cores */
+  --color-text: #302a2a;
+  --color-text-muted: #786d6d;
+  --color-text-faint: #8c8080;
+  --color-background: #f7f7f7;
+  --color-surface: #fff7f7;
+  --color-border: #eae8e8;
+  --color-border-strong: #bdb5b6;
+  --color-primary: #514748;
+  --color-primary-strong: #302829;
+  --color-primary-soft: #eadde1;
+  --color-accent: #008dff;
+  --color-panel-muted: #d6d4d4;
+  --color-success: #2f7d5b;
+  --color-error: #b54747;
+  --color-warning: #a66a16;
+  --color-alunos: #3f6f9f;
+  --color-cursos: #398276;
+  --color-funcionarios: #4f8069;
+  --color-matriculas: #b07a2c;
+  --color-transparent-surface: rgba(255, 247, 247, 0.2);
+
+  /* Fontes */
+  --font-text: var(--font-segoe-ui);
+  --font-title: var(--font-source-serif-4);
+  --font-data: var(--font-space-mono);
+
+  /* Tamanhos de textos */
+  --text-h1: 26px;
+  --text-h2: 20px;
+  --text-h3: 16px;
+  --text-body: 14px;
+  --text-label: 12px;
+  --text-caption: 11px;
+  --text-data: 11px;
+
+  /* Peso das fontes */
+  --font-weight-h1: 700; /* bold*/
+  --font-weight-h2: 700;
+  --font-weight-h3: 700;
+  --font-weight-body: 400; /* regular */
+  --font-weight-label: 700;
+  --font-weight-caption: 400;
+  --font-weight-data: 300; /* light */
+
+  /* Espaçamentos */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+
+  /* Raios */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Breakpoints */
+  --breakpoint-tablet: 640px;
+  --breakpoint-desktop: 1024px;
+}
+
+:root {
+  /* Cores */
+  --color-text: #302a2a;
+  --color-text-muted: #786d6d;
+  --color-text-faint: #8c8080;
+  --color-background: #f7f7f7;
+  --color-surface: #fff7f7;
+  --color-border: #eae8e8;
+  --color-border-strong: #bdb5b6;
+  --color-primary: #272525;
+  --color-primary-strong: #302829;
+  --color-primary-soft: #eadde1;
+  --color-accent: #443e44;
+  --color-panel-muted: #d6d4d4;
+  --color-success: #456457;
+  --color-error: #884e4e;
+  --color-warning: #a66a16;
+  --color-alunos: #4b5763;
+  --color-cursos: #398276;
+  --color-funcionarios: #4f8069;
+  --color-matriculas: #b07a2c;
+  --color-transparent-surface: rgba(255, 247, 247, 0.2);
+
+  /* Fontes */
+  --font-text: var(--font-segoe-ui);
+  --font-title: var(--font-source-serif-4);
+  --font-data: var(--font-space-mono);
+
+  /* Tamanhos de textos */
+  --text-h1: 26px;
+  --text-h2: 20px;
+  --text-h3: 16px;
+  --text-body: 14px;
+  --text-label: 12px;
+  --text-caption: 11px;
+  --text-data: 11px;
+
+  /* Peso das fontes */
+  --font-weight-h1: 700; /* bold*/
+  --font-weight-h2: 700;
+  --font-weight-h3: 700;
+  --font-weight-body: 400; /* regular */
+  --font-weight-label: 700;
+  --font-weight-caption: 400;
+  --font-weight-data: 300; /* light */
+
+  /* Espaçamentos */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+
+  /* Raios */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Breakpoints */
+  --breakpoint-tablet: 640px;
+  --breakpoint-desktop: 1024px;
+}
