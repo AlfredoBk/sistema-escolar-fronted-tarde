@@ -1,0 +1,14 @@
+.button {
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  padding-right: var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--font-text-body);
+  font-weight: var(--font-weight-body);
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}

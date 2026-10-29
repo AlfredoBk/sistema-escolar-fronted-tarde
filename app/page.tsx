@@ -1,55 +1,29 @@
-import "./page-module.css";
+import Button from "@/components/Button";
+import { login } from "./actions";
+import Input from "@/components/Input";
 
 export default function Login() {
   return (
-    <main className="main">
-      <div className="topBand" aria-hidden="true" />
-      <header className="header" aria-hidden="true" />
-
-      <section className="content" aria-labelledby="login-title">
-        <div className="panel">
-          <h1 className="title" id="login-title">
+    <div className="h-screen w-screen">
+      <div className="h-full w-full flex flex-col items-center justify-center px-3xl gap-lg bg-background">
+        <div className="w-full">
+          <h1 className="text-h1 font-h1 text-text font-title">
             Login
           </h1>
-
-          <div className="loginFrame">
-            <form className="form">
-              <div className="fields">
-                <div className="field">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Digite seu Email"
-                    autoComplete="email"
-                  />
-                </div>
-
-                <div className="field">
-                  <label htmlFor="password">Senha</label>
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    placeholder="Digite sua Senha"
-                    autoComplete="current-password"
-                  />
-                </div>
-              </div>
-
-              <button className="submit" type="button">
-                Acessar
-              </button>
-            </form>
-          </div>
+          <p className="text-body font-body text-text-muted">
+            Use seu email institucional
+          </p>
         </div>
-      </section>
 
-      <div className="bottomPanels" aria-hidden="true">
-        <div className="bottomPanelTop" />
-        <div className="bottomPanelBase" />
+        <form className="flex flex-col w-full" action={login}>
+          <Input id="email" label="Email" name="email" />
+          <Input id="password" label="Senha" name="senha" />
+
+          <Button type="submit" variant="primary">
+            Entrar
+          </Button>
+        </form>
       </div>
-    </main>
+    </div>
   );
 }
