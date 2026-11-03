@@ -5,12 +5,16 @@ interface Props extends ComponentProps<"button"> {
   variant?: "primary" | "secondary" | "danger" | "ghost";
 }
 
-export default function Button({ variant = "primary", ...props }: Props) {
+export default function Button({
+  variant = "primary",
+  className,
+  ...props
+}: Props) {
   const variants = {
-    primary: "bg-primary text-surface",
+    primary: "bg-primary text-button-text",
     secondary: "bg-surface text-primary border border-primary",
     ghost: "bg-transparent text-primary",
-    danger: "bg-error text-surface",
+    danger: "bg-error text-button-text",
   };
 
   return (
@@ -19,6 +23,7 @@ export default function Button({ variant = "primary", ...props }: Props) {
       className={twMerge(
         "py-sm px-lg rounded-md text-body font-body disabled:bg-primary-soft disabled:text-text-faint disabled:cursor-not-allowed",
         variants[variant],
+        className,
       )}
     />
   );

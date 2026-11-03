@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Login | Sistema Escolar",
-  description: "Acesse o sistema escolar.",
+  title: "Sistema Escolar",
+  description: "Gestao escolar.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

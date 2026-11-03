@@ -5,6 +5,7 @@
   --color-text: #302a2a;
   --color-text-muted: #786d6d;
   --color-text-faint: #8c8080;
+  --color-button-text: #ffffff;
   --color-background: #f7f7f7;
   --color-surface: #fff7f7;
   --color-border: #eae8e8;
@@ -70,6 +71,7 @@
   --color-text: #302a2a;
   --color-text-muted: #786d6d;
   --color-text-faint: #8c8080;
+  --color-button-text: #fcf2f2;
   --color-background: #f7f7f7;
   --color-surface: #fff7f7;
   --color-border: #eae8e8;

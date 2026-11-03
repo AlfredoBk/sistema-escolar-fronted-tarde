@@ -6,6 +6,8 @@ interface Props extends ComponentProps<"input"> {
   caption?: string;
   error?: string;
   required?: boolean;
+  wrapperClassName?: string;
+  labelClassName?: string;
   variant?:
     | "default"
     | "rounded"
@@ -22,13 +24,18 @@ export default function Input({
   error,
   required = false,
   variant = "default",
+  wrapperClassName,
+  labelClassName,
   ...props
 }: Props) {
   return (
-    <div className="flex flex-col">
+    <div className={twMerge("flex flex-col", wrapperClassName)}>
       <label
         htmlFor={id}
-        className="text-text text-label font-label flex gap-1"
+        className={twMerge(
+          "text-text text-label font-label flex gap-1",
+          labelClassName,
+        )}
       >
         {label} {required && <p className="text-error">*</p>}
       </label>
@@ -41,14 +48,16 @@ export default function Input({
           error && "border-error",
         )}
       />
-      <p
-        className={twMerge(
-          "text-text text-caption font-caption",
-          error && "text-error",
-        )}
-      >
-        {error || caption}
-      </p>
+      {(error || caption) && (
+        <p
+          className={twMerge(
+            "text-text text-caption font-caption",
+            error && "text-error",
+          )}
+        >
+          {error || caption}
+        </p>
+      )}
     </div>
   );
 }
