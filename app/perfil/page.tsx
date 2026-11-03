@@ -1,13 +1,20 @@
 export default function Perfil() {
-
-    
   const funcionario = {
-    nome: "Marco Orelhas",
+    nome: "Marco",
     email: "Adimin@gmail.com",
     cargo: "Funcionario",
-    matricula: "6767",
-    status: "Vivo com salario de R$ - 676767",
+    matricula: "00240",
+    status: "Ativo",
   };
+
+  const informacoes = [
+    { titulo: "Nome completo", valor: funcionario.nome },
+    { titulo: "Email", valor: funcionario.email },
+    { titulo: "Cargo", valor: funcionario.cargo },
+    { titulo: "Matrícula", valor: funcionario.matricula },
+    { titulo: "Status", valor: funcionario.status },
+  ];
+  const inicial = funcionario.nome.charAt(0).toUpperCase();
 
   return (
     <main className="min-h-screen w-full bg-background text-text">
@@ -24,7 +31,7 @@ export default function Perfil() {
           <div className="w-full rounded-md border border-primary-strong bg-primary-soft px-xl py-xl">
             <div className="mb-lg flex items-center gap-lg rounded-md bg-surface px-lg py-lg">
               <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-primary-strong text-h1 text-button-text">
-                M
+                {inicial}
               </div>
 
               <div>
@@ -37,32 +44,21 @@ export default function Perfil() {
               </div>
             </div>
 
-              <div className="space-y-md">
-                <div className="rounded-md bg-surface px-lg py-lg">
-                  <p className="text-label font-label text-text-muted">Nome completo</p>
-                  <p className="mt-xs break-words text-body text-text">{funcionario.nome}</p>
+            <div className="space-y-md">
+              {informacoes.map((item) => (
+                <div
+                  key={item.titulo}
+                  className="rounded-md border border-border bg-surface px-lg py-lg"
+                >
+                  <p className="text-label font-label text-text-muted">
+                    {item.titulo}
+                  </p>
+                  <p className="mt-xs break-words text-body text-text">
+                    {item.valor}
+                  </p>
                 </div>
-
-                <div className="rounded-md bg-surface px-lg py-lg">
-                  <p className="text-label font-label text-text-muted">Email</p>
-                  <p className="mt-xs break-words text-body text-text">{funcionario.email}</p>
-                </div>
-
-                <div className="rounded-md bg-surface px-lg py-lg">
-                  <p className="text-label font-label text-text-muted">Cargo</p>
-                  <p className="mt-xs text-body text-text">{funcionario.cargo}</p>
-                </div>
-
-                <div className="rounded-md bg-surface px-lg py-lg">
-                  <p className="text-label font-label text-text-muted">Matrícula</p>
-                  <p className="mt-xs text-body text-text">{funcionario.matricula}</p>
-                </div>
-
-                <div className="rounded-md bg-surface px-lg py-lg">
-                  <p className="text-label font-label text-text-muted">Status</p>
-                  <p className="mt-xs text-body text-text">{funcionario.status}</p>
-                </div>
-              </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
