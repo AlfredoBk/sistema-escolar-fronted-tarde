@@ -1,67 +1,100 @@
-export default function Perfil() {
-  const funcionario = {
-    nome: "Marco",
-    email: "Adimin@gmail.com",
-    cargo: "Funcionario",
-    matricula: "00240",
-    status: "Ativo",
-  };
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import editFuncionarioData, { getFuncionarioData } from "./actions";
 
-  const informacoes = [
-    { titulo: "Nome completo", valor: funcionario.nome },
-    { titulo: "Email", valor: funcionario.email },
-    { titulo: "Cargo", valor: funcionario.cargo },
-    { titulo: "Matrícula", valor: funcionario.matricula },
-    { titulo: "Status", valor: funcionario.status },
-  ];
-  const inicial = funcionario.nome.charAt(0).toUpperCase();
+export default async function Perfil() {
+  const funcionario = await getFuncionarioData();
+  const editAction = editFuncionarioData.bind(null, funcionario.id);
 
   return (
-    <main className="min-h-screen w-full bg-background text-text">
-      <header className="h-8 border-b border-primary-strong bg-primary-strong">
-        <div className="h-full border-b-[3px] border-text bg-primary" />
-      </header>
+    <main className="min-h-screen bg-background px-md py-xl text-text">
+      <div className="mx-auto max-w-[700px]">
+        <h1 className="mb-lg font-title text-h1 font-h1">Meu Perfil🫓</h1>
 
-      <section className="flex min-h-[calc(100vh-32px)] flex-col items-center px-md pb-lg pt-[clamp(64px,9vh,112px)] tablet:px-xl">
-        <div className="w-full max-w-[360px]">
-          <h1 className="mb-sm font-title text-h1 font-h1 text-text-muted">
-            Perfil 👤
-          </h1>
+        <form
+          action={editAction}
+          className="rounded-md border border-border bg-surface p-xl"
+        >
 
-          <div className="w-full rounded-md border border-primary-strong bg-primary-soft px-xl py-xl">
-            <div className="mb-lg flex items-center gap-lg rounded-md bg-surface px-lg py-lg">
-              <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-primary-strong text-h1 text-button-text">
-                {inicial}
-              </div>
-
-              <div>
-                <h2 className="font-title text-h2 font-h2 text-text">
-                  {funcionario.nome}
-                </h2>
-                <p className="mt-xs text-body text-text-muted">
-                  {funcionario.cargo}
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-md">
-              {informacoes.map((item) => (
-                <div
-                  key={item.titulo}
-                  className="rounded-md border border-border bg-surface px-lg py-lg"
-                >
-                  <p className="text-label font-label text-text-muted">
-                    {item.titulo}
-                  </p>
-                  <p className="mt-xs break-words text-body text-text">
-                    {item.valor}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="grid gap-md tablet:grid-cols-2">
+            <Input
+              id="nome"
+              label="Nome Completo"
+              required
+              defaultValue={funcionario.nome}
+              name="nome"
+              labelClassName="mb-xs"
+              className="w-full"
+            />
+            <Input
+              id="email"
+              label="Email"
+              type="email"
+              required
+              defaultValue={funcionario.email}
+              name="email"
+              labelClassName="mb-xs"
+              className="w-full"
+            />
+            <Input
+              id="telefone"
+              label="Telefone"
+              defaultValue={funcionario.telefone}
+              name="telefone"
+              labelClassName="mb-xs"
+              className="w-full"
+            />
+            <Input
+              id="nascimento"
+              label="Data de Nascimento"
+              defaultValue={funcionario.nascimento}
+              name="nascimento"
+              labelClassName="mb-xs"
+              className="w-full"
+            />
+            <Input
+              id="cpf"
+              label="CPF"
+              required
+              defaultValue={funcionario.cpf}
+              name="cpf"
+              labelClassName="mb-xs"
+              className="w-full"
+            />
+            <Input
+              id="endereco"
+              label="Endereço"
+              defaultValue={funcionario.endereco}
+              name="endereco"
+              labelClassName="mb-xs"
+              className="w-full"
+            />
+            <Input
+              id="cargo"
+              label="Cargo"
+              required
+              defaultValue={funcionario.cargo}
+              name="cargo"
+              labelClassName="mb-xs"
+              className="w-full"
+            />
+            <Input
+              id="senha"
+              label="Nova Senha"
+              name="senha"
+              type="password"
+              labelClassName="mb-xs"
+              className="w-full"
+            />
           </div>
-        </div>
-      </section>
+
+          <div className="mt-lg flex justify-end">
+            <Button type="submit" className="w-full px-xl tablet:w-auto">
+              Salvar Alterações
+            </Button>
+          </div>
+        </form>
+      </div>
     </main>
   );
 }
