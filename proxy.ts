@@ -4,21 +4,29 @@ import { jwtVerify } from "jose";
 
 
 export async function proxy(request: NextRequest) {
+    const isLoginPage = request.nextUrl.pathname === "/";
     const token = request.cookies.get("@gestao-escolar/token")?.value;
 
     if (!token) {
-        return NextResponse.redirect(new URL("/", request.url));
+        return isLoginPage
+            ? NextResponse.next()
+            : NextResponse.redirect(new URL("/", request.url));
     }
 
     try {
         await jwtVerify(token, new TextEncoder().encode(process.env.JWT_SECRET));
+        if (isLoginPage) {
+            return NextResponse.redirect(new URL("/perfil", request.url));
+        }
         return NextResponse.next();
-    } catch (e) {
-        console.error(e);
+    } catch {
+        if (isLoginPage) {
+            return NextResponse.next();
+        }
         return NextResponse.redirect(new URL("/", request.url));
     }
 }
 
 export const config = {
-    matcher: ["/perfil"],
+    matcher: ["/", "/perfil", "/alunos", "/cursos"],
 };

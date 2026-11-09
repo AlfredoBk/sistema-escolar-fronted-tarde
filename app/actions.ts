@@ -63,6 +63,12 @@ export async function login(formData: FormData) {
     redirect("/perfil");
 }
 
+export async function logout() {
+    const cookieStore = await cookies();
+    cookieStore.delete("@gestao-escolar/token");
+    redirect("/");
+}
+
 export async function getFuncionarioData(): Promise<Funcionario | null> {
     const cookieStore = await cookies();
     const token = cookieStore.get("@gestao-escolar/token")?.value;
